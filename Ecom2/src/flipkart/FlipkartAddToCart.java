@@ -15,11 +15,11 @@ public class FlipkartAddToCart
 	
 	By price_beforeAddingToCart = By.xpath("//div[@class='_30jeq3 _16Jk6d']");
 	
-	By addtocart = By.xpath("//button[@class='_2KpZ6l _2U9uOA _3v1-ww']");
+	By addtocart = By.xpath("//button[text()='ADD TO CART']");
 	
-	By quantity_increase = By.xpath("//body/div[@id='container']/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/button[2]");
+	By quantity_increase = By.xpath("(//div[text()='Save for later']/../..//button)[2]");
 	
-	By finalcartvalue = By.cssSelector("div._1Er18h div._6t1WkM._3HqJxg div._1YokD2._2GoDe3.col-12-12 div._1YokD2._3Mn1Gg.col-4-12._78xt5Y:nth-child(2) div._1AtVbE.col-12-12 div.dimARw div._35mLK5 div._I_XQO div._3LxTgx:nth-child(4) div.Ob17DV span:nth-child(2) div._1dqRvU div.Ob17DV._3X7Jj1 > span:nth-child(2)");
+	By finalcartvalue = By.xpath("(//div[text()='Total Amount']/../..//span)[2]");
 	
 	By productName = By.xpath("//h1/span");
 	

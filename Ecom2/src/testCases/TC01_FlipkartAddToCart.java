@@ -4,6 +4,7 @@ import java.io.File;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import flipkart.FlipkartAddToCart;
 import flipkart.FlipkartHomepage;
@@ -26,8 +27,11 @@ public class TC01_FlipkartAddToCart
 	{
 		
 		System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+File.separator+"dependencies"+File.separator+"chromedriver.exe");
-		driver = new ChromeDriver();
-		
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--incognito");
+
+		driver = new ChromeDriver(options);
+		driver.manage().deleteAllCookies();
 		driver.manage().window().maximize();
 		
 		
