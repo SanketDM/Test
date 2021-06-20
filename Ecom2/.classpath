@@ -3,7 +3,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="dependencies/byte-buddy-1.8.15.jar"/>
-	<classpathentry kind="lib" path="dependencies/chromedriver.exe"/>
 	<classpathentry kind="lib" path="dependencies/client-combined-3.141.59.jar"/>
 	<classpathentry kind="lib" path="dependencies/client-combined-3.141.59-sources.jar"/>
 	<classpathentry kind="lib" path="dependencies/commons-exec-1.3.jar"/>

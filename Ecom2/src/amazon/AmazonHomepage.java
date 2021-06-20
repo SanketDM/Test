@@ -11,9 +11,7 @@ public class AmazonHomepage
 	By searchbox = By.id("twotabsearchtextbox");
 	
 	By submitsearch = By.id("nav-search-submit-button");
-	
-	By productselect = By.xpath("//span[contains(text(),'New Apple iPhone 12 (128GB) - Black')]");
-	
+		
 	public AmazonHomepage(WebDriver driver)
 	{
 		this.driver = driver;
@@ -29,8 +27,13 @@ public class AmazonHomepage
 		driver.findElement(submitsearch).click();
 	}
 	
-	public void selectProduct()
+	public void selectProduct(String productName)
 	{
-		driver.findElement(productselect).click();
+		productName = productName.substring(productName.indexOf("("));
+		
+		productName = productName.substring(1,productName.indexOf(" ")-1);
+		
+		By val = By.xpath("//h2//span[contains(text(),'iPhone') and contains(text(),'"+productName+"')]");
+		driver.findElement(val).click();
 	}
 }

@@ -1,5 +1,7 @@
 package testCases;
 
+import java.io.File;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import amazon.AmazonHomepage;
@@ -18,19 +20,21 @@ public class TC02_ComparePrices
 	{
 		flipSearchTest();
 		
-		flipSelectTest();
+		String productName = flipSelectTest();
 		
-		amazSearchTest();
+		amazSearchTest(productName);
 		
 		amazSelectTest();
 		
 		finalResult();
+		
+		driver.quit();
 	}
 	
 	public static void flipSearchTest() throws InterruptedException
 	{
 		
-		System.setProperty("webdriver.chrome.driver","C:\\Users\\Sanket\\eclipse-workspace\\Ecom2\\dependencies\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+File.separator+"dependencies"+File.separator+"chromedriver.exe");
 		driver = new ChromeDriver();
 		
 		driver.manage().window().maximize();
@@ -56,8 +60,9 @@ public class TC02_ComparePrices
        
   	}
 	
-	public static void flipSelectTest() throws InterruptedException
+	public static String flipSelectTest() throws InterruptedException
 	{
+		String productName = "";
 		FlipkartAddToCart FlipKartobj = new FlipkartAddToCart(driver);
 		
 		for(String tab:driver.getWindowHandles())
@@ -65,8 +70,10 @@ public class TC02_ComparePrices
         	driver.switchTo().window(tab);
         }
 		
+		
 		FlipKartobj.pincode();
 		
+		productName = FlipKartobj.getProductName();
 		FlipKartobj.pinCheck();
 		
 		FlipKartobj.printPrice();
@@ -76,20 +83,22 @@ public class TC02_ComparePrices
 		FlipKartobj.finalCartValue();
 		
 		str1 = FlipKartobj.finalpriceF.replace(",", "");	
+		
+		return productName;
 	}
 	
-	public static void amazSearchTest() throws InterruptedException
+	public static void amazSearchTest(String productName) throws InterruptedException
 	{
 		AmazonHomepage AmazHomeobj = new AmazonHomepage(driver);
 		
 		driver.get("http://www.amazon.in");
 		Thread.sleep(3000);
 		
-		AmazHomeobj.searchProduct("Iphone 12");
+		AmazHomeobj.searchProduct(productName);
 		
 		AmazHomeobj.clickSearchLookup();
 		
-		AmazHomeobj.selectProduct();
+		AmazHomeobj.selectProduct(productName);
 		
 	}
 	

@@ -21,10 +21,16 @@ public class FlipkartAddToCart
 	
 	By finalcartvalue = By.cssSelector("div._1Er18h div._6t1WkM._3HqJxg div._1YokD2._2GoDe3.col-12-12 div._1YokD2._3Mn1Gg.col-4-12._78xt5Y:nth-child(2) div._1AtVbE.col-12-12 div.dimARw div._35mLK5 div._I_XQO div._3LxTgx:nth-child(4) div.Ob17DV span:nth-child(2) div._1dqRvU div.Ob17DV._3X7Jj1 > span:nth-child(2)");
 	
+	By productName = By.xpath("//h1/span");
 	
     public FlipkartAddToCart(WebDriver driver)
     {
     	this.driver = driver;
+    }
+    
+    public String getProductName()
+    {
+    	return driver.findElement(productName).getText();
     }
     
     public void pincode() throws InterruptedException

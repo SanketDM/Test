@@ -1,5 +1,7 @@
 package testCases;
 
+import java.io.File;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -16,12 +18,14 @@ public class TC01_FlipkartAddToCart
 		flipSearchTest();
 		
 		flipSelectTest();
+		
+		driver.quit();
 	}
 	
 	public static void flipSearchTest() throws InterruptedException
 	{
 		
-		System.setProperty("webdriver.chrome.driver","C:\\Users\\Sanket\\Desktop\\Selenium\\ChromeDriver\\chromedriver_win32\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+File.separator+"dependencies"+File.separator+"chromedriver.exe");
 		driver = new ChromeDriver();
 		
 		driver.manage().window().maximize();
